@@ -1,16 +1,17 @@
 import { Text, View , StyleSheet } from "react-native";
 
-export default function Createscreen() {
-    return <View style={styles.container} >
-        <Text>Create items screen</Text>
+export default function Recents() {
+    return <View style={styles.pagecontainer} >
+        <Text>
+            Recents page 
+        </Text>
     </View>
 }
 
 const styles = StyleSheet.create({
-    container:{
+    pagecontainer:{
         flex:1,
         paddingVertical:30,
         paddingHorizontal:20,
-
     }
 })
