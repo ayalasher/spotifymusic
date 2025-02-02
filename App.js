@@ -24,6 +24,8 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import Homescreenouter from './screens/Homescreenouter';
+import MytopTabs from './screens/Homescreenouter';
 // import { StatusBar } from 'react-native';
 
 export default function App() {
@@ -53,7 +55,7 @@ export default function App() {
           backgroundColor:"#141714",
         }
       }} >
-        <drawer.Screen name="Home" component={Homescreen}  options={{ headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} , drawerActiveBackgroundColor:"#4f5c4f" , drawerActiveTintColor:"#2b8a2b"  , drawerInactiveTintColor:"white" , drawerIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
+        <drawer.Screen name="Home" component={MytopTabs}  options={{ headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} , drawerActiveBackgroundColor:"#4f5c4f" , drawerActiveTintColor:"#2b8a2b"  , drawerInactiveTintColor:"white" , drawerIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
         <drawer.Screen name="Add Account" component={Addaccount}  options={{ headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} ,  drawerActiveBackgroundColor:"#4f5c4f" , drawerActiveTintColor:"#2b8a2b"  , drawerInactiveTintColor:"white" ,  drawerIcon:({color, size})=>(<AntDesign name="pluscircleo" size={size} color={color} />)}} />
         <drawer.Screen name="User" component={Profilepage}  options={{ headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} ,  drawerActiveBackgroundColor:"#4f5c4f" , drawerActiveTintColor:"#2b8a2b"  , drawerInactiveTintColor:"white" ,  drawerIcon:({color, size})=>(<AntDesign name="user" size={size} color={color} />)}} />
         <drawer.Screen name="What's new" component={Whatsisnew}  options={{ headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} ,  headerTintColor:"#2b8a2b" ,  headerStyle:{backgroundColor:"#141714"} ,  drawerActiveBackgroundColor:"#4f5c4f" , drawerActiveTintColor:"#2b8a2b"  , drawerInactiveTintColor:"white" ,  drawerIcon:({color, size})=>(<FontAwesome6 name="bolt-lightning" size={size} color={color} />)}} />
