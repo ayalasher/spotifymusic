@@ -11,7 +11,7 @@ export default function Search() {
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        paddingVertical:30,
+        paddingVertical:50,
         paddingHorizontal:20,
 
     }

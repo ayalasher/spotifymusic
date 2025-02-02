@@ -3,7 +3,7 @@ import { Text, View , StyleSheet } from "react-native";
 export default function Addaccount() {
     return <View style={styles.pagecontainer} >
         <Text>
-            Profile page 
+            add account page 
         </Text>
     </View>
 }

@@ -22,6 +22,7 @@ import Ionicons from '@expo/vector-icons/Ionicons';
 // import Entypo from '@expo/vector-icons/Entypo';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
 export default function App() {
   const Stack = createNativeStackNavigator()
@@ -33,9 +34,9 @@ export default function App() {
   function Mybottomtabs() {
     return (
       <Tabs.Navigator>
-        <Tabs.Screen name="Home" component={Mydrawtabs}  options={{headerShown:false , tabBarIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
+        <Tabs.Screen name="Homeunseen" component={Mydrawtabs}  options={{headerShown:false , title:"Home" , tabBarIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
         <Tabs.Screen name="Search" component={Search}  options={{headerShown:false ,  tabBarIcon:({color, size})=>(<AntDesign name="search1" size={size} color={color} />)  }} />
-        <Tabs.Screen name="Library" component={Library} options={{headerShown:false  ,   tabBarIcon:({color, size})=>(<Ionicons name="library-outline" size={size} color={color} />)}}  />
+        <Tabs.Screen name="Library" component={Library} options={{headerShown:false,   tabBarIcon:({color, size})=>(<Ionicons name="library-outline" size={size} color={color} />)}}  />
         <Tabs.Screen name="create" component={Createscreen} options={{headerShown:false  ,   tabBarIcon:({color, size})=>(<Entypo name="add-to-list" size={size} color={color} />)}}  />
         <Tabs.Screen name="Premium" component={Premium} options={{headerShown:false ,  tabBarIcon:({color, size})=>(<Entypo name="spotify" size={size} color={color} />)}}  />
       </Tabs.Navigator>
@@ -46,11 +47,12 @@ export default function App() {
   function Mydrawtabs() {
     return (
       <drawer.Navigator>
-        <drawer.Screen name="bottomtabs" component={Mybottomtabs} />
-        <drawer.Screen name="addaccount" component={Addaccount} />
-        <drawer.Screen name="whatisnew" component={Whatsisnew} />
-        <drawer.Screen name="recents" component={Recents} />
-        <drawer.Screen name="settingandprivacy" component={Settingsandprivacy} />
+        <drawer.Screen name="Home" component={Homescreen}  options={{drawerIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
+        <drawer.Screen name="Add Account" component={Addaccount}  options={{drawerIcon:({color, size})=>(<AntDesign name="pluscircleo" size={size} color={color} />)}} />
+        <drawer.Screen name="User" component={Profilepage}  options={{drawerIcon:({color, size})=>(<AntDesign name="user" size={size} color={color} />)}} />
+        <drawer.Screen name="What's new" component={Whatsisnew}  options={{drawerIcon:({color, size})=>(<FontAwesome6 name="bolt-lightning" size={size} color={color} />)}} />
+        <drawer.Screen name="Recents" component={Recents}  options={{drawerIcon:({color, size})=>(<Entypo name="back-in-time" size={size} color={color} />)}} />
+        <drawer.Screen name="Settings and privacy" component={Settingsandprivacy}  options={{drawerIcon:({color, size})=>(<AntDesign name="setting" size={size} color={color} />)}} />
       </drawer.Navigator>
     ) 
   }
@@ -59,8 +61,9 @@ export default function App() {
 
   return (
     <NavigationContainer>
+      {/* <drawer.Navigator></drawer.Navigator> */}
      <Stack.Navigator>
-      <Stack.Screen name="mainjoin" component={Mydrawtabs} options={{headerShown:true}} />
+      <Stack.Screen name="mainjoin" component={Mybottomtabs} options={{headerShown:false}} />
      </Stack.Navigator>
     </NavigationContainer>
   );
