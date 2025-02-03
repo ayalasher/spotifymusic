@@ -6,18 +6,21 @@ import { useEffect } from "react";
 import {makeRedirectUri} from "expo-auth-session"
 import * as WebBrowser from "expo-web-browser"
 
+WebBrowser.maybeCompleteAuthSession()
+
 export default function Homescreen() {
 
     const client_id = "67e17de60bac47109bf1f9b6b64f91ed"
-    const redirect_uri = "https://porflio-vercel.vercel.app/"
+    const redirect_uri = "https://spotifyredirectionwebsite.vercel.app/"
 
 
     const state = "spotify_auth_state"
     const scope = "user-read-private user-read-email"
 
 
-    const authorize = async ()=>{
+    const authorize = async () => {
         try {
+            console.log("Starting authorization...");
             const authUrl = `https://accounts.spotify.com/authorize?` +
                 `client_id=${client_id}` +
                 `&response_type=code` +
@@ -25,16 +28,24 @@ export default function Homescreen() {
                 `&scope=${encodeURIComponent(scope)}` +
                 `&state=${state}`;
 
-            const result = await WebBrowser.openAuthSessionAsync(authUrl, redirect_uri);
+            console.log("Auth URL:", authUrl);
+            const result = await WebBrowser.openAuthSessionAsync(
+                authUrl,
+                redirect_uri,
+                { showInRecents: true }
+            );
+            
+            console.log("Auth Result:", result);
+
             if (result.type === 'success') {
                 const { code, state } = parseUrl(result.url);
-                // Handle the auth code here
                 console.log('Auth code:', code);
+                return code;
             }
         } catch (error) {
             console.error('Authorization error:', error);
         }
-    }
+    };
 
     // const values  = {
     //     response_type:"code",
