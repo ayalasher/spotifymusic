@@ -8,7 +8,8 @@ export default function Homescreen() {
                 <Hometopbuttonns>Music</Hometopbuttonns>
                 <Hometopbuttonns>Podcast</Hometopbuttonns>
         </View> */}
-        <Text>The home screen</Text>
+        <Text>The home screen testing</Text>
+        <Text>Onto the logic . All UI done</Text>
     </View>
 }
 
