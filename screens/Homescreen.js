@@ -1,7 +1,62 @@
 import { Text, View , StyleSheet } from "react-native";
-import Hometopbuttonns from "../buttons/Hometopbuttons";
+// import Hometopbuttonns from "../buttons/Hometopbuttons";
+// import axios from "axios"
+import axios from "axios";
+import { useEffect } from "react";
+import {makeRedirectUri} from "expo-auth-session"
 
 export default function Homescreen() {
+
+    const client_id = "67e17de60bac47109bf1f9b6b64f91ed"
+    const redirect_uri = makeRedirectUri({
+        scheme:"spotifymusic"
+    })
+
+
+    const state = "spotify_auth_state"
+    const scope = "user-read-private user-read-email"
+
+
+    // const authorize = async ()=>{
+    //     try {
+    //         const authUrl = `https://accounts.spotify.com/authorize?` +
+    //             `client_id=${client_id}` +
+    //             `&response_type=code` +
+    //             `&redirect_uri=${encodeURIComponent(redirect_uri)}` +
+    //             `&scope=${encodeURIComponent(scope)}` +
+    //             `&state=${state}`;
+
+    //         const result = await WebBrowser.openAuthSessionAsync(authUrl, redirect_uri);
+    //         if (result.type === 'success') {
+    //             const { code, state } = parseUrl(result.url);
+    //             // Handle the auth code here
+    //             console.log('Auth code:', code);
+    //         }
+    //     } catch (error) {
+    //         console.error('Authorization error:', error);
+    //     }
+    // }
+
+    useEffect(()=>{
+        axios.get("https://accounts.spotify.com/authorize?",{
+            params:{
+                response_type:"code",
+                client_id:client_id,
+                scope: scope ,
+                redirect_uri:redirect_uri,
+                state:state
+            }   
+        }).then(response=>{
+            console.log(response.data);
+            
+        }).catch(err=>{
+            console.log("The error is ", err );
+            
+        })
+    },[])
+
+
+
     return <View style={styles.container} >
         {/* <View style={styles.btncontainer} >
                 <Hometopbuttonns>All</Hometopbuttonns>
