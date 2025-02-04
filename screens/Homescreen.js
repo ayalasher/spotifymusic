@@ -2,20 +2,29 @@ import { Text, View , StyleSheet } from "react-native";
 // import Hometopbuttonns from "../buttons/Hometopbuttons";
 // import axios from "axios"
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect , useState } from "react";
 import {makeRedirectUri} from "expo-auth-session"
 import * as WebBrowser from "expo-web-browser"
+import { spotifyCredentials } from "../utilities/spotifyauth";
+
 
 WebBrowser.maybeCompleteAuthSession()
 
 export default function Homescreen() {
 
-    const client_id = "67e17de60bac47109bf1f9b6b64f91ed"
-    const redirect_uri = "https://spotifyredirectionwebsite.vercel.app/"
+
+    
+
+    // const client_id = "67e17de60bac47109bf1f9b6b64f91ed"
+    const client_id = spotifyCredentials.clientId
+    const client_secret = spotifyCredentials.clientSecret
+    const  redirect_uri = spotifyCredentials.redirectUri 
+    const scope = spotifyCredentials.scopes 
+    // const redirect_uri = "https://spotifyredirectionwebsite.vercel.app/"
 
 
     const state = "spotify_auth_state"
-    const scope = "user-read-private user-read-email"
+    // const scope = "user-read-private user-read-email"
 
 
     const authorize = async () => {
@@ -26,21 +35,33 @@ export default function Homescreen() {
                 `&response_type=code` +
                 `&redirect_uri=${encodeURIComponent(redirect_uri)}` +
                 `&scope=${encodeURIComponent(scope)}` +
+                `&show_dialog=true` +  // Force showing auth dialog
                 `&state=${state}`;
 
             console.log("Auth URL:", authUrl);
             const result = await WebBrowser.openAuthSessionAsync(
                 authUrl,
                 redirect_uri,
-                { showInRecents: true }
+                { 
+                    showInRecents: true,
+                    preferEphemeralSession: false 
+                    
+                }
             );
             
             console.log("Auth Result:", result);
 
-            if (result.type === 'success') {
-                const { code, state } = parseUrl(result.url);
-                console.log('Auth code:', code);
-                return code;
+            switch(result.type) {
+                case 'success':
+                    const { code, state } = parseUrl(result.url);
+                    console.log('Auth code:', code);
+                    return code;
+                case 'dismiss':
+                    console.log('Auth was dismissed');
+                    // Handle retry logic here
+                    break;
+                default:
+                    console.log('Unknown response type:', result.type);
             }
         } catch (error) {
             console.error('Authorization error:', error);
