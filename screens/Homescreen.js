@@ -28,6 +28,17 @@ export default function Homescreen() {
         'user-read-currently-playing',
         'user-read-playback-state',
         'user-modify-playback-state',
+        'app-remote-control',
+        'playlist-read-private',
+        'playlist-read-collaborative',
+        'playlist-modify-private',
+        'playlist-modify-public',
+        'user-follow-modify',
+        'user-follow-read',
+        'user-read-recently-played',
+        'user-top-read',
+        'user-library-modify',
+        'user-library-read',
     ].join(' ')
 
 
@@ -79,7 +90,7 @@ export default function Homescreen() {
                     console.log('Auth code is :', code);
                     console.log("state obtained is : " , state );
 
-                    
+
                     // requesting the access token
                     // The params object
                     const body_params = {
