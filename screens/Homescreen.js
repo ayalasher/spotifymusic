@@ -78,8 +78,9 @@ export default function Homescreen() {
                     const { code, state } = parseUrl(result.url);
                     console.log('Auth code is :', code);
                     console.log("state obtained is : " , state );
-                    // requesting the access token
 
+                    
+                    // requesting the access token
                     // The params object
                     const body_params = {
                         'grant_type':'authorization_code', 
