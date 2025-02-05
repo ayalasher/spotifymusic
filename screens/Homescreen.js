@@ -4,6 +4,7 @@ import { useEffect , useState } from "react";
 import {makeRedirectUri} from "expo-auth-session"
 import * as WebBrowser from "expo-web-browser"
 import * as AuthSession from "expo-auth-session"
+import buffer from "buffer"
 
 
 WebBrowser.maybeCompleteAuthSession()
@@ -77,7 +78,42 @@ export default function Homescreen() {
                     const { code, state } = parseUrl(result.url);
                     console.log('Auth code is :', code);
                     console.log("state obtained is : " , state );
-                    
+                    // requesting the access token
+
+                    // The params object
+                    const body_params = {
+                        'grant_type':'authorization_code', 
+                        'code':`${code}`,
+                        'redirect_uri':'exp://192.168.100.10:8081'
+                    }
+
+                    // Base 64 encoding the variables using btoa
+                    const encode_credentials = (client_id , client_secret)=>{
+                        const credentials = `${client_id}:${client_secret}`
+                        return ` Basic ${btoa(credentials)}`
+                    }
+                    const encoded_elements_header = encode_credentials(client_id,client_secret)
+
+                    // The header object
+                    const header_params =  {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Authorization':`${encoded_elements_header}`
+                    }
+
+                    // The axios post request
+                    axios.post('https://accounts.spotify.com/api/token' , body_params , 
+                        {
+                            headers :{
+                               "Content-Type":header_params["Content-Type"],
+                               Authorization:header_params.Authorization ,
+
+                            }
+                        }
+                      ).then((res)=>{
+                        console.log(res.data);
+                    }).catch((err)=>{
+                        console.log(`Error:${err}`);
+                    })
                     return code;
                 case 'dismiss':
                     console.log('Auth was dismissed');
