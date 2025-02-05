@@ -76,6 +76,8 @@ export default function Homescreen() {
                 case 'success':
                     const { code, state } = parseUrl(result.url);
                     console.log('Auth code is :', code);
+                    console.log("state obtained is : " , state );
+                    
                     return code;
                 case 'dismiss':
                     console.log('Auth was dismissed');
