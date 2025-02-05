@@ -45,7 +45,6 @@ export default function Homescreen() {
 
     const authorize = async () => {
         try {
-            console.log("Starting authorization...");
             const authUrl = `https://accounts.spotify.com/authorize?` +
                 `client_id=${client_id}` +
                 `&response_type=${response_type}` +
@@ -148,36 +147,48 @@ export default function Homescreen() {
 
 
     };
+
+    
+    //getting the contents of the homepage
+
+    if (accessTokenresults.access_token) {
+        const header_fordata={
+            'Authorization': `Bearer  ${accessTokenresults.access_token} `,
+            
+        }
+        console.log(`${header_fordata.Authorization}`);
+        
+        axios.get("https://api.spotify.com/v1/me" , {
+            headers :{
+                "Authorization":header_fordata.Authorization , 
+                'Content-Type': 'application/json'
+            }
+        } ).then((res)=>{
+            console.log(res.data);
+            setUserData(res.data)
+            
+        }).catch((err)=>{
+            console.log(err);
+            console.log("axios for the GET USER ");
+            
+            
+        })
+    } else {
+        console.log("access token missing");
+        
+    }
+
+
+
+
+
     
 
     useEffect(()=>{
         authorize();
+        // getuserdata();
     },[])
 
-
-    //getting the contents of the homepage
-
-    const header_fordata={
-        'Authorization': `Bearer  ${accessTokenresults.access_token} `,
-        
-    }
-    console.log(`${header_fordata.Authorization}`);
-    
-    axios.get("https://api.spotify.com/v1/me" , {
-        headers :{
-            "Authorization":header_fordata.Authorization , 
-            'Content-Type': 'application/json'
-        }
-    } ).then((res)=>{
-        console.log(res.data);
-        setUserData(res.data)
-        
-    }).catch((err)=>{
-        console.log(err);
-        console.log("axios for the GET USER ");
-        
-        
-    })
 
 
 
