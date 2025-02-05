@@ -149,34 +149,8 @@ export default function Homescreen() {
     };
 
     
-    //getting the contents of the homepage
+    //getting user data
 
-    if (accessTokenresults.access_token) {
-        const header_fordata={
-            'Authorization': `Bearer  ${accessTokenresults.access_token} `,
-            
-        }
-        console.log(`${header_fordata.Authorization}`);
-        
-        axios.get("https://api.spotify.com/v1/me" , {
-            headers :{
-                "Authorization":header_fordata.Authorization , 
-                'Content-Type': 'application/json'
-            }
-        } ).then((res)=>{
-            console.log(res.data);
-            setUserData(res.data)
-            
-        }).catch((err)=>{
-            console.log(err);
-            console.log("axios for the GET USER ");
-            
-            
-        })
-    } else {
-        console.log("access token missing");
-        
-    }
 
 
 
@@ -187,7 +161,43 @@ export default function Homescreen() {
     useEffect(()=>{
         authorize();
         // getuserdata();
+
+
     },[])
+
+
+    useEffect(()=>{
+        if (accessTokenresults.access_token) {
+            const header_fordata={
+                'Authorization': `Bearer  ${accessTokenresults.access_token} `,
+                
+            }
+            console.log(`${header_fordata.Authorization}`);
+            
+            axios.get("https://api.spotify.com/v1/me" , {
+                headers :{
+                    "Authorization":header_fordata.Authorization , 
+                    'Content-Type': 'application/json'
+                }
+            } ).then((res)=>{
+                console.log(res.data);
+                setUserData(res.data)
+                
+            }).catch((err)=>{
+                console.log(err);
+                console.log("axios for the GET USER ");
+                
+                
+            })
+        } else {
+            console.log("access token missing");
+            
+        }
+    },[accessTokenresults.access_token])
+
+
+            
+ 
 
 
 
