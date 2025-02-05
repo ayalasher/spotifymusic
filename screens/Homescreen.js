@@ -20,7 +20,7 @@ export default function Homescreen() {
     const client_secret ="c78ab835ab8941b4a467d14217a39f9f"
     const response_type ="code"
     const state = "spotify-reactnative-clone"
-    const redirect_URI = "https://spotifyredirectionwebsite.vercel.app/"
+    const redirect_URI = "exp://192.168.100.10:8081"
     const scope =  [
         'user-read-private',
         'user-read-email',
@@ -54,10 +54,28 @@ export default function Homescreen() {
             
             console.log("Auth Result:", result);
 
+            const parseUrl = (url) => {
+                if (!url) return {};
+                
+                const regex = /[#?&]([^=#]+)=([^&#]*)/g;
+                const params = {};
+                let match;
+            
+                while (match = regex.exec(url)) {
+                    params[match[1]] = decodeURIComponent(match[2]);
+                }
+            
+                return {
+                    code: params.code || null,
+                    state: params.state || null,
+                    error: params.error || null
+                };
+            };
+
             switch(result.type) {
                 case 'success':
                     const { code, state } = parseUrl(result.url);
-                    console.log('Auth code:', code);
+                    console.log('Auth code is :', code);
                     return code;
                 case 'dismiss':
                     console.log('Auth was dismissed');
@@ -69,6 +87,10 @@ export default function Homescreen() {
         } catch (error) {
             console.error('Authorization error:', error);
         }
+
+
+
+
     };
 
     useEffect(()=>{
@@ -80,6 +102,7 @@ export default function Homescreen() {
     return <View style={styles.container} >
         <Text>The home screen testing</Text>
         <Text>Onto the logic . All UI done</Text>
+        <Text>Auth code </Text>
     </View>
 }
 
