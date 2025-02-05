@@ -5,6 +5,7 @@ import {makeRedirectUri} from "expo-auth-session"
 import * as WebBrowser from "expo-web-browser"
 import * as AuthSession from "expo-auth-session"
 import buffer from "buffer"
+import Hometopbuttonns from "../buttons/Hometopbuttons";
 
 
 WebBrowser.maybeCompleteAuthSession()
@@ -12,8 +13,8 @@ WebBrowser.maybeCompleteAuthSession()
 export default function Homescreen() {
 
     // States for the authorization
-    const [token, setToken] = useState(null)
-    const [userData, setUserData] = useState(null)
+    const [accessTokenresults, setaccessTokenresults] = useState({})
+    const [userData, setUserData] = useState({})
 
 
     // Spotify API credentials
@@ -123,9 +124,14 @@ export default function Homescreen() {
                         }
                       ).then((res)=>{
                         console.log(res.data);
+                        setaccessTokenresults(res.data)
                     }).catch((err)=>{
                         console.log(`Error:${err}`);
                     })
+
+                    // Getting User data
+
+
                     return code;
                 case 'dismiss':
                     console.log('Auth was dismissed');
@@ -142,17 +148,47 @@ export default function Homescreen() {
 
 
     };
+    
 
     useEffect(()=>{
         authorize();
     },[])
 
 
+    //getting the contents of the homepage
+
+    const header_fordata={
+        'Authorization': `Bearer  ${accessTokenresults.access_token} `,
+        
+    }
+    console.log(`${header_fordata.Authorization}`);
+    
+    axios.get("https://api.spotify.com/v1/me" , {
+        headers :{
+            "Authorization":header_fordata.Authorization , 
+            'Content-Type': 'application/json'
+        }
+    } ).then((res)=>{
+        console.log(res.data);
+        setUserData(res.data)
+        
+    }).catch((err)=>{
+        console.log(err);
+        console.log("axios for the GET USER ");
+        
+        
+    })
+
+
 
     return <View style={styles.container} >
+        <View style={styles.topsectioncontainer} >
+        <Hometopbuttonns>P</Hometopbuttonns>
+        </View>
+       
         <Text>The home screen testing</Text>
         <Text>Onto the logic . All UI done</Text>
-        <Text>Auth code </Text>
+        <Text>Acess token results</Text>
     </View>
 }
 
@@ -169,5 +205,10 @@ const styles = StyleSheet.create({
         // justifyContent:"space-between",
         justifyContent:"center",
         flexDirection:"row"
+    },
+    topsectioncontainer:{
+        flexDirection:"row",
+        alignItems:"flex-end",
+        justifyContent:"flex-end"
     }
 })
