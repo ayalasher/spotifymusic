@@ -1,8 +1,18 @@
-import { View , Text , StyleSheet, Pressable } from "react-native";
+import { View , Text , StyleSheet, Pressable, TextInput } from "react-native";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import { useState } from "react";
+// import { rgbaColor } from "react-native-reanimated/lib/typescript/Colors";
 
 export default function Search() {
+
+    const [searhQuery , setsearchQuery] = useState("")
+
+
+    function captureSearchquerytext(Text) {
+        setsearchQuery(Text)
+    }
+
     return <View style={styles.container} >
         <View style={styles.topsectioncontainer} >
 
@@ -19,6 +29,11 @@ export default function Search() {
                     </Pressable>
                 </View>
                 
+        </View>
+
+        <View style={styles.searchbarcontainer} >
+        <AntDesign style={styles.searchicon} name="search1" size={24} color="black" />
+        <TextInput onChangeText={captureSearchquerytext} placeholderTextColor={"rgb(31,31,31)"} placeholder="What do you want to listen to ?" />
         </View>
        
 
@@ -62,4 +77,18 @@ const styles = StyleSheet.create({
     btncontainer:{
     
     },
+    searchbarcontainer:{
+        backgroundColor:"white",
+        flexDirection:"row",
+        // alignContent:"center",
+        alignItems:"center" ,
+        height:50 ,
+        width:"100%",
+        borderRadius:7,
+       marginTop:15,
+    },
+    searchicon:{
+        fontWeight:"700" ,
+        paddingLeft:10,
+    }
 })
