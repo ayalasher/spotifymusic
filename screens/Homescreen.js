@@ -207,9 +207,9 @@ export default function Homescreen() {
         <Hometopbuttonns>P</Hometopbuttonns>
         </View>
        
-        <Text>The home screen testing</Text>
-        <Text>Onto the logic . All UI done</Text>
-        <Text>Acess token results</Text>
+        <Text style={styles.introtxt} >The home screen testing</Text>
+        <Text style={styles.introtxt} >Onto the logic . All UI done</Text>
+        <Text style={styles.introtxt} >Acess token result</Text>
     </View>
 }
 
@@ -232,5 +232,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"flex-end",
         justifyContent:"flex-end"
+    },
+    introtxt:{
+        color:"white"
     }
 })

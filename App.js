@@ -26,6 +26,8 @@ import Entypo from '@expo/vector-icons/Entypo';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import Homescreenouter from './screens/Homescreenouter';
 import MytopTabs from './screens/Homescreenouter';
+import { SlideInUp } from 'react-native-reanimated';
+import { TransitionPresets } from '@react-navigation/bottom-tabs';
 // import { StatusBar } from 'react-native';
 
 export default function App() {
@@ -35,17 +37,30 @@ export default function App() {
 
 
 
+  
+  function Createscreenstack() {
+    return <Stack.Navigator>
+      <Stack.Screen name="Create" component={Createscreen} options={{ presentation:"modal" , headerShown:false}} />
+    </Stack.Navigator>
+  }
+
+
+
   function Mybottomtabs() {
     return (
       <Tabs.Navigator>
-        <Tabs.Screen name="Homeunseen" component={Mydrawtabs}  options={{ tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false , title:"Home" , tabBarIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
+        <Tabs.Screen name="Homeunseen" component={Mydrawtabs}  options={{  tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false , title:"Home" , tabBarIcon:({color, size})=>(<Entypo name="home" size={size} color={color} />)}} />
         <Tabs.Screen name="Search" component={Search}  options={{ tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false ,  tabBarIcon:({color, size})=>(<AntDesign name="search1" size={size} color={color} />)  }} />
         <Tabs.Screen name="Library" component={Library} options={{ tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false,   tabBarIcon:({color, size})=>(<Ionicons name="library-outline" size={size} color={color} />)}}  />
-        <Tabs.Screen name="create" component={Createscreen} options={{ tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false  ,   tabBarIcon:({color, size})=>(<Entypo name="add-to-list" size={size} color={color} />)}}  />
+        <Tabs.Screen name="create" component={Createscreenstack}  options={{  tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false  ,   tabBarIcon:({color, size})=>(<Entypo name="add-to-list" size={size} color={color} />)
+        
+      }}  />
         <Tabs.Screen name="Premium" component={Premium} options={{ tabBarActiveTintColor:"#19e68c" , tabBarInactiveTintColor:"white" ,  tabBarActiveBackgroundColor:"#141714" , tabBarInactiveBackgroundColor:"#141714" ,  headerShown:false ,  tabBarIcon:({color, size})=>(<Entypo name="spotify" size={size} color={color} />)}}  />
       </Tabs.Navigator>
     )
   }
+
+
 
 
   function Mydrawtabs() {
