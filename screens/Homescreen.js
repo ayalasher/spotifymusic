@@ -219,7 +219,8 @@ const styles = StyleSheet.create({
         flex:1,
         paddingVertical:20,
         paddingHorizontal:20,
-        flexDirection:"column"
+        flexDirection:"column",
+        backgroundColor:"#121212"
     },
     btncontainer:{
         alignItems : "center",

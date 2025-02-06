@@ -15,7 +15,7 @@ export default function Search() {
 
                 <View style={styles.cameraiconcontainer}  >
                     <Pressable>
-                       <AntDesign name="camerao" size={27} color="black" />
+                       <AntDesign name="camerao" size={27} color="white" />
                     </Pressable>
                 </View>
                 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         flex:1,
         paddingVertical:50,
         paddingHorizontal:20,
-        backgroundColor:"#353d37"
+        backgroundColor:"#121212"
 
     },
     topsectioncontainer:{
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:10,
         fontSize:25,
         fontWeight:"900",
+        color:"white"
     } ,
     profilebutton:{
        
