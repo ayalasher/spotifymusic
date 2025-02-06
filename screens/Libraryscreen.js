@@ -16,18 +16,16 @@ export default function Library() {
             </View>
 
             <View style={styles.cameraiconcontainer}  >
-                <Pressable>
+                <Pressable style={styles.iconcontainers} >
                     <AntDesign name="search1" size={24} color="white" />
-                    <AntDesign name="plus" size={24} color="black" />
+                </Pressable>
+                <Pressable style={styles.iconcontainers} >
+                    <AntDesign name="plus" size={24} color="white" />
                 </Pressable>
             </View>
             
     </View>
 
-    <View style={styles.searchbarcontainer} >
-    <AntDesign style={styles.searchicon} name="search1" size={24} color="black" />
-    <TextInput  placeholderTextColor={"rgb(31,31,31)"} placeholder="What do you want to listen to ?" />
-    </View>
    
 
 </View>
@@ -83,5 +81,8 @@ const styles = StyleSheet.create({
     searchicon:{
         fontWeight:"700" ,
         paddingLeft:10,
+    },
+    iconcontainers:{
+        paddingHorizontal:10 ,
     }
 })
