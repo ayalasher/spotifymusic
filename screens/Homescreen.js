@@ -180,6 +180,7 @@ export default function Homescreen() {
                     'Content-Type': 'application/json'
                 }
             } ).then((res)=>{
+                // Using the access token to get the user data
                 console.log(res.data);
                 setUserData(res.data)
                 
