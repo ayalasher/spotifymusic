@@ -6,6 +6,8 @@ import * as WebBrowser from "expo-web-browser";
 import * as AuthSession from "expo-auth-session";
 import buffer from "buffer";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
+import { useDispatch, useSelector } from "react-redux";
+import { updateuserdata } from "../redux/store";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -13,6 +15,9 @@ export default function Homescreen() {
   // States for the authorization
   const [accessTokenresults, setaccessTokenresults] = useState({});
   const [userData, setUserData] = useState({});
+
+  const userdatausingredux = useSelector((state) => state.userdata);
+  const dispatch = useDispatch();
 
   // Spotify API credentials
   const client_id = "67e17de60bac47109bf1f9b6b64f91ed";
@@ -166,6 +171,7 @@ export default function Homescreen() {
           // Using the access token to get the user data
           console.log(res.data);
           setUserData(res.data);
+          dispatch(updateuserdata(res.data));
         })
         .catch((err) => {
           console.log(err);
@@ -185,6 +191,9 @@ export default function Homescreen() {
       <Text style={styles.introtxt}>The home screen testing</Text>
       <Text style={styles.introtxt}>Onto the logic . All UI done</Text>
       <Text style={styles.introtxt}>Acess token result</Text>
+      <Text style={styles.introtxt}>
+        The user is : {userdatausingredux.display_name} something something
+      </Text>
     </View>
   );
 }

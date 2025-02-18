@@ -9,10 +9,13 @@ import {
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateuserdata } from "../redux/store";
 // import { rgbaColor } from "react-native-reanimated/lib/typescript/Colors";
 
 export default function Search() {
   const [searhQuery, setsearchQuery] = useState("");
+  const userdatafromredux = useSelector((state) => state.userdata);
 
   function captureSearchquerytext(Text) {
     setsearchQuery(Text);
@@ -50,7 +53,7 @@ export default function Search() {
       </View>
 
       <View style={styles.secondsection}>
-        <Text style={styles.pickedforyoutxt}>Picked for you</Text>
+        <Text style={styles.pickedforyoutxt}>Picked for you {userdatafromredux.display_name} </Text>
       </View>
 
       <View style={styles.topalbumcard}>
