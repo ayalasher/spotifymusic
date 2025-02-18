@@ -17,6 +17,39 @@ export default function Search() {
   const [searhQuery, setsearchQuery] = useState("");
   const userdatafromredux = useSelector((state) => state.userdata);
 
+  const sectionsdata = [
+    {
+      id: "1",
+      title: "Albums",
+      colorcode: "#dc148c",
+    },
+    {
+      id: "2",
+      title: "Artists",
+      colorcode: "#006450",
+    },
+    {
+      id: "3",
+      title: "Audiobooks",
+      colorcode: "#8400e7",
+    },
+    {
+      id: "4",
+      title: "categories",
+      colorcode: "#1e3264",
+    },
+    {
+      id: "5",
+      title: "Chapters",
+      colorcode: "#608108",
+    },
+    {
+      id: "6",
+      title: "Episodes",
+      colorcode: "#8c1932",
+    },
+  ];
+
   function captureSearchquerytext(Text) {
     setsearchQuery(Text);
   }
@@ -53,11 +86,17 @@ export default function Search() {
       </View>
 
       <View style={styles.secondsection}>
-        <Text style={styles.pickedforyoutxt}>Picked for you {userdatafromredux.display_name} </Text>
+        <Text style={styles.pickedforyoutxt}>
+          Picked for you {userdatafromredux.display_name}{" "}
+        </Text>
       </View>
 
       <View style={styles.topalbumcard}>
         <Text>Album card testing</Text>
+      </View>
+
+      <View>
+        <Text style={styles.pickedforyoutxt}>Browse all</Text>
       </View>
     </ScrollView>
   );
@@ -121,11 +160,10 @@ const styles = StyleSheet.create({
   },
   topalbumcard: {
     width: "100%",
-    marginVertical: 10,
     marginHorizontal: 15,
     borderRadius: 10,
     backgroundColor: "yellow",
-    height: "100%",
+    height: "60%",
     paddingVertical: 15,
     paddingHorizontal: 5,
   },

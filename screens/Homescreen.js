@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { makeRedirectUri } from "expo-auth-session";
@@ -183,7 +183,7 @@ export default function Homescreen() {
   }, [accessTokenresults.access_token]);
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.topsectioncontainer}>
         <Hometopbuttonns>P</Hometopbuttonns>
       </View>
@@ -194,7 +194,7 @@ export default function Homescreen() {
       <Text style={styles.introtxt}>
         The user is : {userdatausingredux.display_name} something something
       </Text>
-    </View>
+    </ScrollView>
   );
 }
 
