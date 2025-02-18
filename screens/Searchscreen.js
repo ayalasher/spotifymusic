@@ -48,7 +48,48 @@ export default function Search() {
       title: "Episodes",
       colorcode: "#8c1932",
     },
+    {
+      id: "7",
+      title: "Episodes",
+      colorcode: "#8c1932",
+    },
+    {
+      id: "8",
+      title: "Genres",
+      colorcode: "#477d95",
+    },
+    {
+      id: "9",
+      title: "Markets",
+      colorcode: "#e1118c",
+    },
+    {
+      id: "10",
+      title: "Player",
+      colorcode: "#0d73ec",
+    },
+    {
+      id: "11",
+      title: "Playlists",
+      colorcode: "#477d95",
+    },
+    {
+      id: "12",
+      title: "Shows",
+      colorcode: "#dc148c",
+    },
+    {
+      id: "13",
+      title: "Tracks",
+      colorcode: "#af2896",
+    },
+    {
+      id: "14",
+      title: "Users",
+      colorcode: "#8d67ab",
+    },
   ];
+
 
   function captureSearchquerytext(Text) {
     setsearchQuery(Text);
