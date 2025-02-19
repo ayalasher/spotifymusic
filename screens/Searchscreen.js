@@ -5,91 +5,111 @@ import {
   Pressable,
   TextInput,
   ScrollView,
+  FlatList,
 } from "react-native";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateuserdata } from "../redux/store";
+import axios from "axios";
 // import { rgbaColor } from "react-native-reanimated/lib/typescript/Colors";
+
+const sectionsdata = [
+  {
+    id: "1",
+    title: "Albums",
+    colorcode: "#dc148c",
+  },
+  {
+    id: "2",
+    title: "Artists",
+    colorcode: "#006450",
+  },
+  {
+    id: "3",
+    title: "Audiobooks",
+    colorcode: "#8400e7",
+  },
+  {
+    id: "4",
+    title: "categories",
+    colorcode: "#1e3264",
+  },
+  {
+    id: "5",
+    title: "Chapters",
+    colorcode: "#608108",
+  },
+  {
+    id: "6",
+    title: "Episodes",
+    colorcode: "#8c1932",
+  },
+  {
+    id: "7",
+    title: "Episodes",
+    colorcode: "#8c1932",
+  },
+  {
+    id: "8",
+    title: "Genres",
+    colorcode: "#477d95",
+  },
+  {
+    id: "9",
+    title: "Markets",
+    colorcode: "#e1118c",
+  },
+  {
+    id: "10",
+    title: "Player",
+    colorcode: "#0d73ec",
+  },
+  {
+    id: "11",
+    title: "Playlists",
+    colorcode: "#477d95",
+  },
+  {
+    id: "12",
+    title: "Shows",
+    colorcode: "#dc148c",
+  },
+  {
+    id: "13",
+    title: "Tracks",
+    colorcode: "#af2896",
+  },
+  {
+    id: "14",
+    title: "Users",
+    colorcode: "#8d67ab",
+  },
+];
 
 export default function Search() {
   const [searhQuery, setsearchQuery] = useState("");
   const userdatafromredux = useSelector((state) => state.userdata);
 
-  const sectionsdata = [
-    {
-      id: "1",
-      title: "Albums",
-      colorcode: "#dc148c",
-    },
-    {
-      id: "2",
-      title: "Artists",
-      colorcode: "#006450",
-    },
-    {
-      id: "3",
-      title: "Audiobooks",
-      colorcode: "#8400e7",
-    },
-    {
-      id: "4",
-      title: "categories",
-      colorcode: "#1e3264",
-    },
-    {
-      id: "5",
-      title: "Chapters",
-      colorcode: "#608108",
-    },
-    {
-      id: "6",
-      title: "Episodes",
-      colorcode: "#8c1932",
-    },
-    {
-      id: "7",
-      title: "Episodes",
-      colorcode: "#8c1932",
-    },
-    {
-      id: "8",
-      title: "Genres",
-      colorcode: "#477d95",
-    },
-    {
-      id: "9",
-      title: "Markets",
-      colorcode: "#e1118c",
-    },
-    {
-      id: "10",
-      title: "Player",
-      colorcode: "#0d73ec",
-    },
-    {
-      id: "11",
-      title: "Playlists",
-      colorcode: "#477d95",
-    },
-    {
-      id: "12",
-      title: "Shows",
-      colorcode: "#dc148c",
-    },
-    {
-      id: "13",
-      title: "Tracks",
-      colorcode: "#af2896",
-    },
-    {
-      id: "14",
-      title: "Users",
-      colorcode: "#8d67ab",
-    },
-  ];
+  function navigatetosearchsectionsscreen({ navigation }) {
+    alert("greetings");
+  }
 
+  function rendersectiondata(item) {
+    return (
+      <View style={styles.sectionview}>
+        <Pressable
+          android_ripple={{ color: "grey" }}
+          onPress={navigatetosearchsectionsscreen}
+          style={styles.sectionpressable}
+          backgroundColor={item.item.colorcode}
+        >
+          <Text style={styles.sectiontxt}>{item.item.title}</Text>
+        </Pressable>
+      </View>
+    );
+  }
 
   function captureSearchquerytext(Text) {
     setsearchQuery(Text);
@@ -136,8 +156,16 @@ export default function Search() {
         <Text>Album card testing</Text>
       </View>
 
-      <View>
+      <View style={styles.browsingsection}>
         <Text style={styles.pickedforyoutxt}>Browse all</Text>
+        <View style={styles.flatlistholder}>
+          <FlatList
+            data={sectionsdata}
+            keyExtractor={(item) => item.id}
+            renderItem={rendersectiondata}
+            numColumns={2}
+          />
+        </View>
       </View>
     </ScrollView>
   );
@@ -201,11 +229,44 @@ const styles = StyleSheet.create({
   },
   topalbumcard: {
     width: "100%",
-    marginHorizontal: 15,
     borderRadius: 10,
     backgroundColor: "yellow",
-    height: "60%",
+    height: "15%",
     paddingVertical: 15,
     paddingHorizontal: 5,
+  },
+  browsingsection: {},
+  flatlistholder: {
+    marginVertical: 10,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  sectionview: {
+    // height: 80,
+    // width: 120,
+    // borderRadius: 8,
+    // backgroundColor: "green",
+    // marginVertical: 10,
+    // marginHorizontal: 10,
+    // display: "flex",
+    // justifyContent: "center",
+    // alignItems: "center",
+  },
+  sectionpressable: {
+    // height: "100%",
+    // width: "100%",
+    height: 80,
+    width: 120,
+    borderRadius: 8,
+    // backgroundColor: sectionsdata.item.colorcode,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sectiontxt: {
+    color: "white",
   },
 });
