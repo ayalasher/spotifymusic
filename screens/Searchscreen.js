@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateuserdata } from "../redux/store";
 import axios from "axios";
@@ -90,6 +90,7 @@ const sectionsdata = [
 
 export default function Search() {
   const [searhQuery, setsearchQuery] = useState("");
+  const [albumdata, setAlbumdata] = useState({});
   const userdatafromredux = useSelector((state) => state.userdata);
 
   function navigatetosearchsectionsscreen({ navigation }) {
@@ -114,6 +115,20 @@ export default function Search() {
   function captureSearchquerytext(Text) {
     setsearchQuery(Text);
   }
+
+  const userID = userdatafromredux.id;
+
+  useEffect(() => {
+    axios
+      .get(`https://api.spotify.com/v1/albums/${userID}`)
+      .then((res) => {
+        console.log(res.data);
+        setAlbumdata(res.data);
+      })
+      .catch((err) => {
+        console.log(`Error:${err}`);
+      });
+  }, [albumdata]);
 
   return (
     <ScrollView style={styles.container}>
@@ -153,7 +168,7 @@ export default function Search() {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing 1 ,2 </Text>
+        <Text>Album card testing </Text>
       </View>
 
       <View style={styles.browsingsection}>
