@@ -8,6 +8,7 @@ import buffer from "buffer";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import { useDispatch, useSelector } from "react-redux";
 import { updateuserdata } from "../redux/store";
+import { updateaccesstokendata } from "../redux/store";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -17,6 +18,9 @@ export default function Homescreen() {
   const [userData, setUserData] = useState({});
 
   const userdatausingredux = useSelector((state) => state.userdata);
+  const accesstokendatausingredux = useSelector(
+    (state) => state.accestokendata
+  );
   const dispatch = useDispatch();
 
   // Spotify API credentials
@@ -126,6 +130,7 @@ export default function Homescreen() {
             .then((res) => {
               console.log(res.data);
               setaccessTokenresults(res.data);
+              dispatch(updateaccesstokendata(res.data));
             })
             .catch((err) => {
               console.log(`Error:${err}`);

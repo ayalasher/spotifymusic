@@ -92,6 +92,9 @@ export default function Search() {
   const [searhQuery, setsearchQuery] = useState("");
   const [albumdata, setAlbumdata] = useState({});
   const userdatafromredux = useSelector((state) => state.userdata);
+  const accesstokendatausingredux = useSelector(
+    (state) => state.accestokendata
+  );
 
   function navigatetosearchsectionsscreen({ navigation }) {
     alert("greetings");
@@ -116,11 +119,19 @@ export default function Search() {
     setsearchQuery(Text);
   }
 
-  const userID = userdatafromredux.id;
+  const userID = " 6rqhFgbbKwnb9MLmUQDhG6";
 
   useEffect(() => {
     axios
-      .get(`https://api.spotify.com/v1/albums/${userID}`)
+      .get(`https://api.spotify.com/v1/albums/${userID}`, {
+        headers: {
+          Authorization: `Bearer ${accesstokendatausingredux.access_token}`,
+          "Content-Type": "application/json",
+        },
+        // params: {
+        //   market: "ES",
+        // },
+      })
       .then((res) => {
         console.log(res.data);
         setAlbumdata(res.data);
@@ -163,12 +174,13 @@ export default function Search() {
 
       <View style={styles.secondsection}>
         <Text style={styles.pickedforyoutxt}>
-          Picked for you {userdatafromredux.display_name}{" "}
+          Picked for you {userdatafromredux.display_name}
         </Text>
       </View>
 
       <View style={styles.topalbumcard}>
         <Text>Album card testing </Text>
+        {/* <Text>Access token : {accesstokendatausingredux.access_token} </Text> */}
       </View>
 
       <View style={styles.browsingsection}>
