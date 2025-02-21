@@ -153,7 +153,7 @@ export default function Search() {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing</Text>
+        <Text>Album card testing 1 ,2 </Text>
       </View>
 
       <View style={styles.browsingsection}>
@@ -241,6 +241,8 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: 50,
+    marginBottom: 50,
   },
   sectionview: {
     // height: 80,
