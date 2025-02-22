@@ -119,11 +119,11 @@ export default function Search() {
     setsearchQuery(Text);
   }
 
-  const userID = " 6rqhFgbbKwnb9MLmUQDhG6";
+  const AlBUMID = " 4aawyAB9vmqN3uQ7FjRGTy";
 
   useEffect(() => {
     axios
-      .get(`https://api.spotify.com/v1/albums/${userID}`, {
+      .get(`https://api.spotify.com/v1/albums/${AlBUMID}`, {
         headers: {
           Authorization: `Bearer ${accesstokendatausingredux.access_token}`,
           "Content-Type": "application/json",
@@ -139,7 +139,7 @@ export default function Search() {
       .catch((err) => {
         console.log(`Error:${err}`);
       });
-  }, [albumdata]);
+  }, [accesstokendatausingredux.access_token]);
 
   return (
     <ScrollView style={styles.container}>
@@ -179,8 +179,10 @@ export default function Search() {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing </Text>
-        {/* <Text>Access token : {accesstokendatausingredux.access_token} </Text> */}
+        <Text>Album card testing  </Text>
+        <Text>
+          user access token : {accesstokendatausingredux.access_token}{" "}
+        </Text>
       </View>
 
       <View style={styles.browsingsection}>
