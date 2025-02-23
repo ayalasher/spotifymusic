@@ -11,6 +11,9 @@ import Entypo from "@expo/vector-icons/Entypo";
 import { LinearGradient } from "expo-linear-gradient";
 import spotifypremiumimage from "../assets/Spotify-Premium-upgrade-3.jpg";
 import { cloneElement } from "react";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Feather from "@expo/vector-icons/Feather";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 const { width, height } = Dimensions.get("window");
 
@@ -66,11 +69,166 @@ export default function Premium() {
             <View
               style={{ backgroundColor: "#b3b3b3", height: 1, width: "100%" }}
             ></View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <Entypo
+                name="sound-mute"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>ad-free music listening</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <AntDesign
+                name="download"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Download tolisten offline</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <Entypo
+                name="shuffle"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Play songs in any order</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <Feather
+                name="headphones"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>High quality audio</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <FontAwesome5
+                name="users"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>
+                Listen with friends in rela time
+              </Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <Entypo
+                name="list"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Organise listening queue</Text>
+            </View>
           </View>
 
-          <Text>Available plans</Text>
+          <Text
+            style={{
+              color: "#ffffff",
+              fontSize: 24,
+              fontWeight: "bold",
+              marginVertical: 10,
+              marginHorizontal: 10,
+              paddingVertical: 5,
+              paddingHorizontal: 5,
+            }}
+          >
+            Available plans
+          </Text>
           <View style={styles.card}>
-            <Text>Mini</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginVertical: 7,
+              }}
+            >
+              <Entypo
+                name="spotify"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Premium</Text>
+            </View>
+            <Text
+              style={{
+                color: "#cff56a",
+                marginHorizontal: 20,
+                marginVertical: 7,
+                fontSize: 25,
+                fontWeight: "800",
+              }}
+            >
+              Mini
+            </Text>
           </View>
 
           <View style={styles.card}>
@@ -147,7 +305,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
     width: "100%",
-    height: "270",
+    height: "auto",
     backgroundColor: "#242424",
     marginVertical: 10,
     flexDirection: "column",
