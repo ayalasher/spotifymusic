@@ -179,7 +179,7 @@ export default function Search() {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing  </Text>
+        <Text>Album card testing </Text>
         <Text>
           user access token : {accesstokendatausingredux.access_token}{" "}
         </Text>

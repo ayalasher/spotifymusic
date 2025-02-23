@@ -151,14 +151,13 @@ export default function Homescreen() {
     }
   };
 
-  //getting user data
-
   useEffect(() => {
     authorize();
     // getuserdata();
   }, []);
 
   useEffect(() => {
+    //getting user data after authorization by using the access token...
     if (accessTokenresults.access_token) {
       const header_fordata = {
         Authorization: `Bearer  ${accessTokenresults.access_token} `,
