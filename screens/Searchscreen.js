@@ -119,7 +119,7 @@ export default function Search() {
     setsearchQuery(Text);
   }
 
-  const AlBUMID = " 4aawyAB9vmqN3uQ7FjRGTy";
+  const AlBUMID = "4aawyAB9vmqN3uQ7FjRGTy";
 
   useEffect(() => {
     axios
