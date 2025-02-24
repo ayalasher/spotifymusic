@@ -85,7 +85,7 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>ad-free music listening</Text>
+              <Text style={{ color: "#fafafa" }}>ad-free music listening</Text>
             </View>
 
             <View
@@ -104,7 +104,9 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>Download tolisten offline</Text>
+              <Text style={{ color: "#fafafa" }}>
+                Download tolisten offline
+              </Text>
             </View>
 
             <View
@@ -123,7 +125,7 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>Play songs in any order</Text>
+              <Text style={{ color: "#fafafa" }}>Play songs in any order</Text>
             </View>
 
             <View
@@ -142,7 +144,7 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>High quality audio</Text>
+              <Text style={{ color: "#fafafa" }}>High quality audio</Text>
             </View>
 
             <View
@@ -161,8 +163,8 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>
-                Listen with friends in rela time
+              <Text style={{ color: "#fafafa" }}>
+                Listen with friends in real time
               </Text>
             </View>
 
@@ -182,7 +184,7 @@ export default function Premium() {
                 color="white"
                 style={{ paddingHorizontal: 5 }}
               />
-              <Text style={{ color: "white" }}>Organise listening queue</Text>
+              <Text style={{ color: "#fafafa" }}>Organise listening queue</Text>
             </View>
           </View>
 
