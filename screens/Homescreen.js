@@ -192,9 +192,9 @@ export default function Homescreen() {
         <Hometopbuttonns>P</Hometopbuttonns>
       </View>
 
-      <Text style={styles.introtxt}>The home screen testing</Text>
+      {/* <Text style={styles.introtxt}>The home screen testing</Text>
       <Text style={styles.introtxt}>Onto the logic . All UI done</Text>
-      <Text style={styles.introtxt}>Acess token result</Text>
+      <Text style={styles.introtxt}>Acess token result</Text> */}
       <Text style={styles.introtxt}>
         The user is : {userdatausingredux.display_name} something something
       </Text>

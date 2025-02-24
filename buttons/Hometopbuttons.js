@@ -4,12 +4,15 @@ import { Text, View, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 // import {}  from ''
 
-export default function Hometopbuttonns({ children, accesstokenresults }) {
-  //   function Navigatetouserpage() {
+export default function Hometopbuttonns({
+  children,
+  accesstokenresults,
+  //   navigation,
+}) {
+  //   const Navigatetouserpage = () => {
   const navigation = useNavigation();
-  //     navigation.navigate("User");
-  //     // navigationtouserpage();
-  //   }
+  
+  //   };
 
   const [accesstokendata, setaccesstokendata] = useState(null);
 
@@ -17,7 +20,7 @@ export default function Hometopbuttonns({ children, accesstokenresults }) {
 
   return (
     <Pressable
-      onPress={() => navigation.navigate("User")}
+      onPress={()=>navigation.navigate("User")}
       android_ripple={{ color: "white" }}
       style={({ pressed }) => [
         pressed ? styles.btncontainer && styles.opacity : styles.btncontainer,
