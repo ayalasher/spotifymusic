@@ -18,6 +18,10 @@ export default function Homescreen() {
   const [userData, setUserData] = useState({});
 
   const userdatausingredux = useSelector((state) => state.userdata);
+
+  // const username = userdatausingredux.display_name;
+
+  // const firstletter = username.charAt(0);
   const accesstokendatausingredux = useSelector(
     (state) => state.accestokendata
   );
@@ -189,7 +193,7 @@ export default function Homescreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.topsectioncontainer}>
-        <Hometopbuttonns indrawer={true} >P</Hometopbuttonns>
+        <Hometopbuttonns indrawer={true}>P</Hometopbuttonns>
       </View>
 
       {/* <Text style={styles.introtxt}>The home screen testing</Text>
