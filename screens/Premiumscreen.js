@@ -231,22 +231,412 @@ export default function Premium() {
             >
               Mini
             </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+              }}
+            >
+              1 mobile only premium account{" "}
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+              }}
+            >
+              Offline listening upto 30 devices on one phone
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+              }}
+            >
+              One time payment
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                paddingBottom: 25,
+              }}
+            >
+              Basic audio quality
+            </Text>
+
+            <Text
+              style={{
+                marginHorizontal: 20,
+                color: "#b3b3b3",
+                fontSize: 11,
+                fontWeight: "600",
+                paddingBottom: 25,
+              }}
+            >
+              You can't upgrade to Premium in the app . We know it's not ideal.
+            </Text>
           </View>
 
           <View style={styles.card}>
-            <Text>Individual</Text>
+            <View
+              style={{
+                backgroundColor: "#ffd2d7",
+                padding: 7,
+                position: "absolute",
+                top: 0,
+                left: 0,
+                borderTopLeftRadius: 15,
+                borderBottomRightRadius: 15,
+              }}
+            >
+              <Text style={{ color: "black" }}>Free for 2 months</Text>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginTop: 40,
+              }}
+            >
+              <Entypo
+                name="spotify"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Premium</Text>
+            </View>
+
+            <Text
+              style={{
+                color: "#ffd2d7",
+                marginHorizontal: 20,
+                marginVertical: 7,
+                fontSize: 25,
+                fontWeight: "800",
+              }}
+            >
+              Individual
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              1 premium account
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              cancel anytime
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                paddingBottom: 25,
+              }}
+            >
+              Subscribe or one-time pay
+            </Text>
+
+            <Text
+              style={{
+                marginHorizontal: 20,
+                color: "#b3b3b3",
+                fontSize: 11,
+                fontWeight: "600",
+                paddingBottom: 25,
+              }}
+            >
+              You can't upgrade to Premium in the app . We know it's not ideal.
+            </Text>
           </View>
 
           <View style={styles.card}>
-            <Text>Student</Text>
+            <View
+              style={{
+                backgroundColor: "#c4b1d4",
+                padding: 7,
+                position: "absolute",
+                top: 0,
+                left: 0,
+                borderTopLeftRadius: 15,
+                borderBottomRightRadius: 15,
+              }}
+            >
+              <Text style={{ color: "black" }}>Free for 1 month</Text>
+            </View>
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginTop: 40,
+              }}
+            >
+              <Entypo
+                name="spotify"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Premium</Text>
+            </View>
+
+            <Text
+              style={{
+                color: "#c4b1d4",
+                marginHorizontal: 20,
+                marginVertical: 7,
+                fontSize: 25,
+                fontWeight: "800",
+              }}
+            >
+              Student
+            </Text>
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              1 verified Premium account
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              Discount for elligible students
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              cancel anytime
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                paddingBottom: 25,
+              }}
+            >
+              Subscribe or one-time pay
+            </Text>
+
+            <Text
+              style={{
+                marginHorizontal: 20,
+                color: "#b3b3b3",
+                fontSize: 11,
+                fontWeight: "600",
+                paddingBottom: 25,
+              }}
+            >
+              You can't upgrade to Premium in the app . We know it's not ideal.
+            </Text>
           </View>
 
           <View style={styles.card}>
-            <Text>Duo</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginTop: 40,
+              }}
+            >
+              <Entypo
+                name="spotify"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Premium</Text>
+            </View>
+
+            <Text
+              style={{
+                color: "#ffc862",
+                marginHorizontal: 20,
+                marginVertical: 7,
+                fontSize: 25,
+                fontWeight: "800",
+              }}
+            >
+              Duo
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              2 Premium accounts
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              cancel anytime
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                paddingBottom: 25,
+              }}
+            >
+              Subscribe or one-time pay
+            </Text>
+
+            <Text
+              style={{
+                marginHorizontal: 20,
+                color: "#b3b3b3",
+                fontSize: 11,
+                fontWeight: "600",
+                paddingBottom: 25,
+              }}
+            >
+              You can't upgrade to Premium in the app . We know it's not ideal.
+            </Text>
           </View>
 
           <View style={styles.card}>
-            <Text>Family</Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+                // marginLeft: 10,
+                marginHorizontal: 15,
+                marginTop: 40,
+              }}
+            >
+              <Entypo
+                name="spotify"
+                size={24}
+                color="white"
+                style={{ paddingHorizontal: 5 }}
+              />
+              <Text style={{ color: "white" }}>Premium</Text>
+            </View>
+
+            <Text
+              style={{
+                color: "#a5bbd1",
+                marginHorizontal: 20,
+                marginVertical: 7,
+                fontSize: 25,
+                fontWeight: "800",
+              }}
+            >
+              Family
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              Upto 6 Premium accounts
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              Control contentmarked as explicit
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                // paddingBottom: 25,
+              }}
+            >
+              cancel anytime
+            </Text>
+
+            <Text
+              style={{
+                color: "#fafafa",
+                marginHorizontal: 20,
+                marginVertical: 5,
+                paddingBottom: 25,
+              }}
+            >
+              Subscribe or one-time pay
+            </Text>
+
+            <Text
+              style={{
+                marginHorizontal: 20,
+                color: "#b3b3b3",
+                fontSize: 11,
+                fontWeight: "600",
+                paddingBottom: 25,
+              }}
+            >
+              You can't upgrade to Premium in the app . We know it's not ideal.
+            </Text>
           </View>
         </View>
       </View>
@@ -309,7 +699,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "auto",
     backgroundColor: "#242424",
-    marginVertical: 10,
+    marginVertical: 15,
     flexDirection: "column",
     alignItems: "flex-start",
     justifyContent: "flex-start",
