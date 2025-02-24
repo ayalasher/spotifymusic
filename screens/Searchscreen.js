@@ -146,7 +146,7 @@ export default function Search() {
       <View style={styles.topsectioncontainer}>
         <View style={styles.profileandsearch}>
           <View style={styles.btncontainer}>
-            <Hometopbuttonns indrawer={false} >P</Hometopbuttonns>
+            <Hometopbuttonns indrawer={false}>P</Hometopbuttonns>
           </View>
           <Text style={styles.topsectiontxt}>Search</Text>
         </View>
@@ -179,10 +179,10 @@ export default function Search() {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing 1 ,2 ,3</Text>
-        <Text>
+        <Text>Album card testing </Text>
+        {/* <Text>
           user access token : {accesstokendatausingredux.access_token}{" "}
-        </Text>
+        </Text> */}
       </View>
 
       <View style={styles.browsingsection}>
