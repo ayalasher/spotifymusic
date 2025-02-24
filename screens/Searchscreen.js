@@ -180,9 +180,6 @@ export default function Search() {
 
       <View style={styles.topalbumcard}>
         <Text>Album card testing </Text>
-        {/* <Text>
-          user access token : {accesstokendatausingredux.access_token}{" "}
-        </Text> */}
       </View>
 
       <View style={styles.browsingsection}>
