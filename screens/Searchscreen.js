@@ -146,7 +146,7 @@ export default function Search() {
       <View style={styles.topsectioncontainer}>
         <View style={styles.profileandsearch}>
           <View style={styles.btncontainer}>
-            <Hometopbuttonns>P</Hometopbuttonns>
+            <Hometopbuttonns indrawer={false} >P</Hometopbuttonns>
           </View>
           <Text style={styles.topsectiontxt}>Search</Text>
         </View>

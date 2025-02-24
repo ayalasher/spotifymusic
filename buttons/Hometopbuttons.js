@@ -1,17 +1,24 @@
 // Button for navigating to the profile page from the home page.....
 import { useState } from "react";
 import { Text, View, StyleSheet, Pressable } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, CommonActions } from "@react-navigation/native";
 // import {}  from ''
 
 export default function Hometopbuttonns({
   children,
   accesstokenresults,
+  indrawer,
   //   navigation,
 }) {
   //   const Navigatetouserpage = () => {
   const navigation = useNavigation();
-  
+
+  const navigatetouserfalse = () => {
+    navigation.navigate("Homeunseen", {
+      screen: "User",
+    });
+  };
+
   //   };
 
   const [accesstokendata, setaccesstokendata] = useState(null);
@@ -20,7 +27,9 @@ export default function Hometopbuttonns({
 
   return (
     <Pressable
-      onPress={()=>navigation.navigate("User")}
+      onPress={
+        indrawer ? () => navigation.navigate("User") : navigatetouserfalse
+      }
       android_ripple={{ color: "white" }}
       style={({ pressed }) => [
         pressed ? styles.btncontainer && styles.opacity : styles.btncontainer,

@@ -189,7 +189,7 @@ export default function Homescreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.topsectioncontainer}>
-        <Hometopbuttonns>P</Hometopbuttonns>
+        <Hometopbuttonns indrawer={true} >P</Hometopbuttonns>
       </View>
 
       {/* <Text style={styles.introtxt}>The home screen testing</Text>
