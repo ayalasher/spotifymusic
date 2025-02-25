@@ -11,6 +11,7 @@ const userdataslice = createSlice({
   },
 });
 
+// Creating a slice for the token data
 const accesstokendataslice = createSlice({
   name: "accestokendata",
   initialState: {},
@@ -21,10 +22,22 @@ const accesstokendataslice = createSlice({
   },
 });
 
+// Creating a slice for the album data...
+const albumdataslice = createSlice({
+  name: "albumdata",
+  initialState: {},
+  reducers: {
+    updatealbumdata: (state, action) => {
+      return action.payload;
+    },
+  },
+});
+
 // Export actions
 // The funtions described in the reducer...
 export const { updateuserdata } = userdataslice.actions;
 export const { updateaccesstokendata } = accesstokendataslice.actions;
+export const { updatealbumdata } = albumdataslice.actions;
 
 // Creaitng the store
 const store = configureStore({
@@ -33,6 +46,7 @@ const store = configureStore({
   reducer: {
     userdata: userdataslice.reducer,
     accestokendata: accesstokendataslice.reducer,
+    albumdata: albumdataslice.reducer
   },
 });
 

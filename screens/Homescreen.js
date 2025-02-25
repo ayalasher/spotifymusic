@@ -17,6 +17,7 @@ export default function Homescreen() {
   const [accessTokenresults, setaccessTokenresults] = useState({});
   const [userData, setUserData] = useState({});
 
+  // Useselector is for getting the data from the store...
   const userdatausingredux = useSelector((state) => state.userdata);
 
   // const username = userdatausingredux.display_name;
@@ -25,6 +26,9 @@ export default function Homescreen() {
   const accesstokendatausingredux = useSelector(
     (state) => state.accestokendata
   );
+
+  // useDispatch is for updating the data in the store...
+  // create a variable calling the imported useDispatch function..
   const dispatch = useDispatch();
 
   // Spotify API credentials
@@ -134,6 +138,7 @@ export default function Homescreen() {
             .then((res) => {
               console.log(res.data);
               setaccessTokenresults(res.data);
+              // use the variable created by usedispatch and call funtion created in the store and imported to update data in the store...
               dispatch(updateaccesstokendata(res.data));
             })
             .catch((err) => {

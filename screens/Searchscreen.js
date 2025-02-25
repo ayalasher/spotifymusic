@@ -11,7 +11,7 @@ import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateuserdata } from "../redux/store";
+import { updatealbumdata, updateuserdata } from "../redux/store";
 import axios from "axios";
 // import { rgbaColor } from "react-native-reanimated/lib/typescript/Colors";
 
@@ -96,6 +96,8 @@ export default function Search({ navigation }) {
     (state) => state.accestokendata
   );
 
+  const dispatch = useDispatch();
+
   function rendersectiondata(item) {
     function navigatetosearchsectionsscreen() {
       navigation.navigate("Searchsection", {
@@ -138,6 +140,8 @@ export default function Search({ navigation }) {
       .then((res) => {
         console.log(res.data);
         setAlbumdata(res.data);
+        // Using the usedispatch to set the album data...
+        dispatch(updatealbumdata(res.data));
       })
       .catch((err) => {
         console.log(`Error:${err}`);
