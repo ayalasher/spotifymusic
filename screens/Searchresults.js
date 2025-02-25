@@ -1,12 +1,9 @@
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Searchalbumscreen() {
+export default function Searchresultsscreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.pagetxt}>
-        
-        The album under the picked for you section
-      </Text>
+      <Text style={styles.pagetxt}>Results for the search</Text>
     </View>
   );
 }
