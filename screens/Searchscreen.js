@@ -6,6 +6,8 @@ import {
   TextInput,
   ScrollView,
   FlatList,
+  Image,
+  ActivityIndicator,
 } from "react-native";
 import Hometopbuttonns from "../buttons/Hometopbuttons";
 import AntDesign from "@expo/vector-icons/AntDesign";
@@ -91,13 +93,44 @@ const sectionsdata = [
 export default function Search({ navigation }) {
   const [searhQuery, setsearchQuery] = useState("");
   const [albumdata, setAlbumdata] = useState({});
+  const [isLoading, setIsloading] = useState(true);
   const userdatafromredux = useSelector((state) => state.userdata);
+  const albumdatafromredux = useSelector((state) => state.albumdata);
   const accesstokendatausingredux = useSelector(
     (state) => state.accestokendata
   );
 
   const dispatch = useDispatch();
 
+  function activityindicator() {
+    return (
+      <View>
+        <ActivityIndicator size="small" color="green" />
+      </View>
+    );
+  }
+
+  function renderalbumiimage() {
+    setIsloading(false);
+    return (
+      <View>
+        <Image
+          style={{ height: "70%", width: "100%", borderRadius: 10 }}
+          // accessing the data from album data then then the first element of the images array then the URL
+          source={{ uri: `${albumdatafromredux.images[0].url}` }}
+        />
+      </View>
+    );
+  }
+
+  const timeout = 2500;
+
+  function albumimagesettimeout() {
+    setTimeout(() => {
+      setIsloading(true);
+      renderalbumiimage();
+    }, timeout);
+  }
   function rendersectiondata(item) {
     function navigatetosearchsectionsscreen() {
       navigation.navigate("Searchsection", {
@@ -142,6 +175,7 @@ export default function Search({ navigation }) {
         setAlbumdata(res.data);
         // Using the usedispatch to set the album data...
         dispatch(updatealbumdata(res.data));
+        setIsloading(false);
       })
       .catch((err) => {
         console.log(`Error:${err}`);
@@ -186,7 +220,21 @@ export default function Search({ navigation }) {
       </View>
 
       <View style={styles.topalbumcard}>
-        <Text>Album card testing </Text>
+        <View style={{ margin: 5 }}>
+          {/* <Text>Album card testing </Text> */}
+          {isLoading ? (
+            <ActivityIndicator size="small" color="#19e68c" />
+          ) : (
+            <Image
+              style={{ height: 150, width: 150, borderRadius: 10 }}
+              // accessing the data from album data then then the first element of the images array then the URL
+              source={{ uri: `${albumdatafromredux.images[0].url}` }}
+            />
+          )}
+        </View>
+        <View style={{ margin: 5 }}>
+          <Text> Certified lover boy 😁 </Text>
+        </View>
       </View>
 
       <View style={styles.browsingsection}>
@@ -261,11 +309,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   topalbumcard: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
     width: "100%",
     borderRadius: 10,
-    backgroundColor: "yellow",
+    backgroundColor: "#542e2e",
     height: "15%",
-    paddingVertical: 15,
+    paddingVertical: 5,
     paddingHorizontal: 5,
   },
   browsingsection: {},
