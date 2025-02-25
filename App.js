@@ -31,6 +31,9 @@ import { TransitionPresets } from "@react-navigation/bottom-tabs";
 // import { StatusBar } from 'react-native';
 import store from "./redux/store";
 import { Provider } from "react-redux";
+import Searchresultsscreen from "./screens/Searchresults";
+import Searchalbumscreen from "./screens/searchalbumscreen";
+import Searchsectionsscreen from "./screens/Searchsectionsscreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -234,6 +237,23 @@ export default function App() {
           <Stack.Screen
             name="mainjoin"
             component={Mybottomtabs}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Searchresults"
+            component={Searchresultsscreen}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Searchalbum"
+            component={Searchalbumscreen}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Searchsection"
+            component={Searchsectionsscreen}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>
