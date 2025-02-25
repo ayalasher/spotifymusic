@@ -254,7 +254,15 @@ export default function App() {
           <Stack.Screen
             name="Searchsection"
             component={Searchsectionsscreen}
-            options={{ headerShown: false }}
+            options={{
+              headerShown: true,
+              headerTitleStyle: { color: "white" },
+              title: "Browse all",
+              headerStyle: {
+                backgroundColor: "#121212",
+              },
+              // headerTitleAlign: "left",
+            }}
           />
         </Stack.Navigator>
         <StatusBar style="light" />

@@ -88,7 +88,7 @@ const sectionsdata = [
   },
 ];
 
-export default function Search() {
+export default function Search({ navigation }) {
   const [searhQuery, setsearchQuery] = useState("");
   const [albumdata, setAlbumdata] = useState({});
   const userdatafromredux = useSelector((state) => state.userdata);
@@ -96,11 +96,13 @@ export default function Search() {
     (state) => state.accestokendata
   );
 
-  function navigatetosearchsectionsscreen({ navigation }) {
-    alert("greetings");
-  }
-
   function rendersectiondata(item) {
+    function navigatetosearchsectionsscreen() {
+      navigation.navigate("Searchsection", {
+        itemtitle: item.item.title,
+      });
+    }
+
     return (
       <View style={styles.sectionview}>
         <Pressable
