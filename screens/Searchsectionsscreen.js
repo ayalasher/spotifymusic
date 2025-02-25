@@ -8,7 +8,7 @@ export default function Searchsectionsscreen({ route }) {
       <Text style={styles.pagetxt}>
         Screen for the different sections in the search screen
       </Text>
-      <Text style={styles.pagetxt}>Title section : {ITEMTITLE} </Text>
+      <Text style={styles.pagetxt}>Section title : {ITEMTITLE} </Text>
     </View>
   );
 }
