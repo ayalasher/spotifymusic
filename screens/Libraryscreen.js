@@ -9,7 +9,7 @@ export default function Library() {
       <View style={styles.topsectioncontainer}>
         <View style={styles.profileandsearch}>
           <View style={styles.btncontainer}>
-            <Hometopbuttonns indrawer={false} >P</Hometopbuttonns>
+            <Hometopbuttonns indrawer={false}>P</Hometopbuttonns>
           </View>
           <Text style={styles.topsectiontxt}>Your Library</Text>
         </View>
