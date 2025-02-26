@@ -9,7 +9,7 @@ export default function Createscreen({ navigation }) {
   }
 
   function alerttestingtocombine() {
-    navigation.navigate("Combine playlist");
+    navigation.navigate("Blend playlist");
   }
 
   return (

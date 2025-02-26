@@ -279,12 +279,12 @@ export default function App() {
           />
 
           <Stack.Screen
-            name="Combine playlist"
+            name="Blend playlist"
             component={Combineplaylist}
             options={{
               headerShown: true,
               headerTitleStyle: { color: "white" },
-              title: "Combine playlist",
+              title: "Blend playlist",
               headerStyle: {
                 backgroundColor: "#121212",
               },
