@@ -15,6 +15,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updatealbumdata, updateuserdata } from "../redux/store";
 import axios from "axios";
+import Entypo from "@expo/vector-icons/Entypo";
 // import { rgbaColor } from "react-native-reanimated/lib/typescript/Colors";
 
 const sectionsdata = [
@@ -278,9 +279,46 @@ export default function Search({ navigation }) {
               fontWeight: "400",
             }}
           >
-            {" "}
-            Certified lover boy{" "}
+            Certified lover boy
           </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              height: "50%",
+              width: "100%",
+              alignItems: "flex-end",
+              justifyContent: "flex-start",
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                padding: 5,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 12 }}>
+                {albumdatafromredux.label}
+              </Text>
+              <Entypo name="dot-single" size={24} color="white" />
+              <Text style={{ color: "white", fontSize: 12 }}>
+                {albumdatafromredux.release_date}{" "}
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: "row",
+                padding: 5,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Pressable onPress={navigatetosearchalbumscreen}>
+                <AntDesign name="play" size={30} color="#19e68c" />
+              </Pressable>
+            </View>
+          </View>
         </View>
       </Pressable>
 
