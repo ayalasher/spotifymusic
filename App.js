@@ -17,6 +17,8 @@ import settingsandprivacy from "./screens/settingsandprivacy";
 import addaccount from "./screens/Addaccount";
 import Addaccount from "./screens/Addaccount";
 import Settingsandprivacy from "./screens/settingsandprivacy";
+import Combineplaylist from "./screens/Combineplaylist";
+import Personalplaylist from "./screens/Personalplaylist";
 import Whatsisnew from "./screens/Whatsnew";
 // import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -46,7 +48,11 @@ export default function App() {
         <Stack.Screen
           name="Create"
           component={Createscreen}
-          options={{ presentation: "modal", headerShown: false }}
+          options={{
+            presentation: "modal",
+            headerShown: false,
+            title: "Create",
+          }}
         />
       </Stack.Navigator>
     );
@@ -99,7 +105,7 @@ export default function App() {
           }}
         />
         <Tabs.Screen
-          name="create"
+          name="Create"
           component={Createscreenstack}
           options={{
             tabBarActiveTintColor: "#19e68c",
@@ -265,6 +271,34 @@ export default function App() {
               headerShown: true,
               headerTitleStyle: { color: "white" },
               title: "Browse all",
+              headerStyle: {
+                backgroundColor: "#121212",
+              },
+              // headerTitleAlign: "left",
+            }}
+          />
+
+          <Stack.Screen
+            name="Combine playlist"
+            component={Combineplaylist}
+            options={{
+              headerShown: true,
+              headerTitleStyle: { color: "white" },
+              title: "Combine playlist",
+              headerStyle: {
+                backgroundColor: "#121212",
+              },
+              // headerTitleAlign: "left",
+            }}
+          />
+
+          <Stack.Screen
+            name="Personal playlist"
+            component={Personalplaylist}
+            options={{
+              headerShown: true,
+              headerTitleStyle: { color: "white" },
+              title: "Personal playlist",
               headerStyle: {
                 backgroundColor: "#121212",
               },
