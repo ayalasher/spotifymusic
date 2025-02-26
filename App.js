@@ -237,7 +237,7 @@ export default function App() {
           <Stack.Screen
             name="mainjoin"
             component={Mybottomtabs}
-            options={{ headerShown: false, title: "Home" }}
+            options={{ headerShown: false, title: "Back" }}
           />
           <Stack.Screen
             name="Searchresults"
