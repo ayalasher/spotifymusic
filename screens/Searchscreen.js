@@ -102,6 +102,12 @@ export default function Search({ navigation }) {
 
   const dispatch = useDispatch();
 
+  function navigatetosearchalbumscreen() {
+    navigation.navigate("Searchalbum", {
+      albumdataforsearchalbumscreen: albumdatafromredux,
+    });
+  }
+
   function activityindicator() {
     return (
       <View>
@@ -219,7 +225,10 @@ export default function Search({ navigation }) {
         </Text>
       </View>
 
-      <View style={styles.topalbumcard}>
+      <Pressable
+        onPress={navigatetosearchalbumscreen}
+        style={styles.topalbumcard}
+      >
         <View
           style={{
             margin: 5,
@@ -273,7 +282,7 @@ export default function Search({ navigation }) {
             Certified lover boy{" "}
           </Text>
         </View>
-      </View>
+      </Pressable>
 
       <View style={styles.browsingsection}>
         <Text style={styles.pickedforyoutxt}>Browse all</Text>

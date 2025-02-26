@@ -237,7 +237,7 @@ export default function App() {
           <Stack.Screen
             name="mainjoin"
             component={Mybottomtabs}
-            options={{ headerShown: false }}
+            options={{ headerShown: false, title: "Home" }}
           />
           <Stack.Screen
             name="Searchresults"
@@ -248,7 +248,14 @@ export default function App() {
           <Stack.Screen
             name="Searchalbum"
             component={Searchalbumscreen}
-            options={{ headerShown: false }}
+            options={{
+              headerShown: true,
+              headerTitleStyle: { color: "white" },
+              title: "Picked for you",
+              headerStyle: {
+                backgroundColor: "#121212",
+              },
+            }}
           />
 
           <Stack.Screen
