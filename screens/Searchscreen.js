@@ -274,7 +274,7 @@ export default function Search({ navigation }) {
           <Text
             style={{
               color: "white",
-              fontSize: 19,
+              fontSize: 16,
               fontFamily: "roboto",
               fontWeight: "400",
             }}
