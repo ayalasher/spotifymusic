@@ -4,7 +4,6 @@ export default function Searchalbumscreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.pagetxt}>
-        
         The album under the picked for you section
       </Text>
     </View>

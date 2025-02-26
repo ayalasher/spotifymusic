@@ -46,7 +46,7 @@ const store = configureStore({
   reducer: {
     userdata: userdataslice.reducer,
     accestokendata: accesstokendataslice.reducer,
-    albumdata: albumdataslice.reducer
+    albumdata: albumdataslice.reducer,
   },
 });
 

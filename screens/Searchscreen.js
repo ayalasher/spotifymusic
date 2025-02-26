@@ -105,7 +105,7 @@ export default function Search({ navigation }) {
   function activityindicator() {
     return (
       <View>
-        <ActivityIndicator size="small" color="green" />
+        <ActivityIndicator align size="small" color="green" />
       </View>
     );
   }
@@ -115,7 +115,7 @@ export default function Search({ navigation }) {
     return (
       <View>
         <Image
-          style={{ height: "70%", width: "100%", borderRadius: 10 }}
+          style={{ margin: 5, height: "80%", width: "80%", borderRadius: 10 }}
           // accessing the data from album data then then the first element of the images array then the URL
           source={{ uri: `${albumdatafromredux.images[0].url}` }}
         />
@@ -220,20 +220,58 @@ export default function Search({ navigation }) {
       </View>
 
       <View style={styles.topalbumcard}>
-        <View style={{ margin: 5 }}>
+        <View
+          style={{
+            margin: 5,
+            borderRadius: 10,
+            width: "45%",
+            height: "90%",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {/* <Text>Album card testing </Text> */}
           {isLoading ? (
             <ActivityIndicator size="small" color="#19e68c" />
           ) : (
             <Image
-              style={{ height: 150, width: 150, borderRadius: 10 }}
+              style={{ height: "100%", width: "100%", borderRadius: 10 }}
               // accessing the data from album data then then the first element of the images array then the URL
               source={{ uri: `${albumdatafromredux.images[0].url}` }}
             />
           )}
         </View>
-        <View style={{ margin: 5 }}>
-          <Text> Certified lover boy 😁 </Text>
+        <View
+          style={{
+            margin: 5,
+            flexDirection: "column",
+            borderRadius: 10,
+            width: "45%",
+            height: "90%",
+          }}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize: 24,
+              fontWeight: "800",
+              fontFamily: "roboto",
+            }}
+          >
+            Drake
+          </Text>
+          <Text
+            style={{
+              color: "white",
+              fontSize: 19,
+              fontFamily: "roboto",
+              fontWeight: "400",
+            }}
+          >
+            {" "}
+            Certified lover boy{" "}
+          </Text>
         </View>
       </View>
 
@@ -314,7 +352,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     width: "100%",
     borderRadius: 10,
-    backgroundColor: "#542e2e",
+    backgroundColor: "#7c777b",
     height: "15%",
     paddingVertical: 5,
     paddingHorizontal: 5,
