@@ -1,1 +1,1 @@
-A spotify clone mobile app using supabase , expo react native and the spotify API .
+A spotify clone mobile app using expo react native and the spotify API .
